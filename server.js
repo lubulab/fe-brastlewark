@@ -9,7 +9,6 @@ const app = express();
 app.use(express.static(__dirname));
 app.use(express.static(__dirname + '/app'));
 
-console.log(__dirname);
 //add this so the browser can GET the bower files
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
