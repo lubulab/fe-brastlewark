@@ -1,16 +1,23 @@
 //Install express server
 const express = require('express');
 const path = require('path');
+const port = process.env.PORT || 8081;
 
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/fe-brastlewark'));
+app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/app'));
 
-app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/fe-brastlewark/index.html'));
+console.log(__dirname);
+//add this so the browser can GET the bower files
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
+
+app.get('/', function (req, res) {
+    res.sendFile('index.html', {root: __dirname });
 });
 
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+// Launch app to listen to specified port
+app.listen(port, () => {
+    console.log(`Started up at port ${port}`);
+});
