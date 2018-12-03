@@ -1,0 +1,106 @@
+
+body
+  font-family: 'Lato', sans-serif
+  font-size: 16px
+  main
+    width: 90%
+    margin: 0 auto
+    h1
+      text-align: center
+    label:first
+      margin-right: 30px
+    ul
+      list-style-type: none
+      padding: 0px
+      display: flex
+      flex-flow: row wrap
+      align-items: center
+      justify-content: space-around
+    a
+      text-decoration: none
+      color: black
+    .citizens-list
+      text-align: center
+      li
+        margin-bottom: 5px
+      p
+        line-height: 1rem
+        margin: 5px 0px
+      .picture
+        height: 220px
+        width: 220px
+        background-color: #66EAF3
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        margin-bottom: 7px
+        border-radius: 50%
+        box-shadow: 7px 7px 3px #888888
+
+      .picture:hover
+        box-shadow: 7px 7px 3px salmon 
+      a:hover
+        color: tomato
+        font-weight: bold
+    .link-list
+
+      justify-content: center
+      align-items: center
+      button
+        padding: .5rem
+        box-shadow: none
+        background-color: lightgrey
+        border: 1px solid dimgrey
+    .modal
+      background-color: rgba(0,0,0,.95)
+      border-radius: 16px
+      padding: 15px 30px
+      position: fixed
+      width: 550px
+      top: 15%
+      right: calc( (100% - 550px) / 2)
+      color: white
+      a
+        text-decoration: none
+        color: white
+      h2
+        text-align: center
+        margin-top: 0px
+      h4
+        text-align: right
+        margin: 0px
+      ul
+        list-style-type: circle
+        padding-left: 20px
+        display: block
+        margin: 0px
+        li
+          line-height: 1.5rem
+      .modal-picture
+        width: 275px
+        height: 275px
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        float: left
+      .modal-data
+        float: left
+        padding-left: 40px
+@media(max-width: 650px)
+  body
+    main
+      .citizen
+        .picture
+          width: 250px
+          height: 250px
+      .modal
+        width: 300px
+        top: 75px
+        right: calc( (100% - 300px) / 2)
+      .modal-picture
+        float: none
+      .modal-data
+        float: none
+        ul
+          margin: 0 auto
+          align-item: center

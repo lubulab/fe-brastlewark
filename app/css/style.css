@@ -1,0 +1,154 @@
+body {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 16px;
+}
+
+body main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+body main h1 {
+  text-align: center;
+}
+
+body main label:first {
+  margin-right: 30px;
+}
+
+body main ul {
+  list-style-type: none;
+  padding: 0px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+body main a {
+  text-decoration: none;
+  color: black;
+}
+
+body main .citizens-list {
+  text-align: center;
+}
+
+body main .citizens-list li {
+  margin-bottom: 5px;
+}
+
+body main .citizens-list p {
+  line-height: 1rem;
+  margin: 5px 0px;
+}
+
+.lab {
+  margin: 5px;
+}
+
+body main .citizens-list .picture {
+  height: 220px;
+  width: 220px;
+  background-color: #66EAF3;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 7px;
+  border-radius: 50%;
+  box-shadow: 7px 7px 3px #888888;
+}
+
+body main .citizens-list .picture:hover {
+  box-shadow: 7px 7px 3px salmon;
+}
+
+body main .citizens-list a:hover {
+  color: tomato;
+  font-weight: bold;
+}
+
+body main .link-list {
+  justify-content: center;
+  align-items: center;
+}
+
+body main .link-list button {
+  padding: .5rem;
+  box-shadow: none;
+  background-color: lightgrey;
+  border: 1px solid dimgrey;
+}
+
+body main .modal {
+  background-color:#211c1cf2;
+  border-radius: 16px;
+  padding: 15px 30px;
+  position: fixed;
+  width: 550px;
+  top: 15%;
+  right: calc( (100% - 550px) / 2);
+  color: white;
+}
+
+body main .modal a {
+  text-decoration: none;
+  color: white;
+}
+
+body main .modal h2 {
+  text-align: center;
+  margin-top: 0px;
+}
+
+body main .modal h4 {
+  text-align: right;
+  margin: 0px;
+}
+
+body main .modal ul {
+  list-style-type: circle;
+  padding-left: 20px;
+  display: block;
+  margin: 0px;
+}
+
+body main .modal ul li {
+  line-height: 1.5rem;
+}
+
+body main .modal .modal-picture {
+  width: 275px;
+  height: 275px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: left;
+}
+
+body main .modal .modal-data {
+  float: left;
+  padding-left: 40px;
+}
+
+@media (max-width: 650px) {
+  body main .citizen .picture {
+    width: 250px;
+    height: 250px;
+  }
+  body main .modal {
+    width: 300px;
+    top: 75px;
+    right: calc( (100% - 300px) / 2);
+  }
+  body main .modal-picture {
+    float: none;
+  }
+  body main .modal-data {
+    float: none;
+  }
+  body main .modal-data ul {
+    margin: 0 auto;
+    align-item: center;
+  }
+}

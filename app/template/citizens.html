@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="jumbotron">
+    <!-- TITLE -->
+    <h1>{{vm.title}}</h1>
+    <p ng-if="vm.citizens.length < 1"> {{vm.explanation}} </p>
+  </div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+
+      <!-- FILTERS FORM -->
+      <form ng-if="vm.citizens.length > 0" class="form-inline">
+
+        <!-- FILTERS: filterBy -->
+        <ul class="list-form form-group">
+          <li>
+            <label class="lab">Name:
+              <input type="text" placeholder="filter by name" ng-model="vm.filterValue.name"></label>
+          </li>
+          <li>
+            <label class="lab">Age:
+              <input type="text" placeholder="filter by age" ng-model="vm.filterValue.age"></label>
+          </li>
+          <li>
+            <label>Hair color:
+              <input type="text" placeholder="filter by hair color" ng-model="vm.filterValue.hair_color"></label>
+          </li>
+        </ul>
+        <hr>
+        <!-- FILTERS: orderBy -->
+        <ul class="list-form form-group">
+          <li> Order population by:
+          <li><label class="lab"><input type="radio" ng-model="vm.orderBy" value="name" ng-click="vm.sortCitizens()">
+              Name</label></li>
+          <li></li><label class="lab"><input type="radio" ng-model="vm.orderBy" value="age" ng-click="vm.sortCitizens()">
+            Age</label></li>
+          <li></li><label class="lab"><input type="radio" ng-model="vm.orderBy" value="weight" ng-click="vm.sortCitizens()">
+            Weight</label></li>
+          <li></li><label class="lab"><input type="radio" ng-model="vm.orderBy" value="height" ng-click="vm.sortCitizens()">
+            Height</label></li>
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <hr>
+    <div class="panel-body">
+      <!-- LIST -->
+      <ul class="citizens-list" ng-if="vm.citizens.length > 0">
+        <li ng-repeat="citizen in vm.newData.citizensPage | filter:vm.filterValue">
+          <div ng-style="{'background-image': 'url(' + citizen.thumbnail + ')'}" class="picture img-responsive"
+            ng-click="vm.detailsById($event, citizen.id)">
+          </div>
+          <p>
+            <a href="#myModal" ng-click="vm.detailsById($event, citizen.id)">{{ citizen.name }}</a>
+          </p>
+          <p> Age: {{citizen.age}}</p>
+        </li>
+      </ul>
+
+      <!-- SCROLL BAR -->
+      <ul class="link-list" ng-if="vm.citizens.length > 0">
+        <li>
+          <button ng-click="vm.changePage($event, 1)" ng-disabled="vm.newData.previousPage">First</button>
+        </li>
+        <li>
+          <button ng-click="vm.changePage($event, vm.newData.actualPage - 1)" ng-disabled="vm.newData.previousPage">Prev</button>
+        </li>
+        <li ng-repeat="link in vm.newData.arrayPage">
+          <button ng-click="vm.changePage($event, link[0])" ng-show="link[1]"> {{ link[0] }} </button>
+          <button ng-show="!link[1]" ng-disabled="true" ng-style="{ 'background-color':' darkgrey', 'color':'white'}">{{
+            link[0] }} </button>
+        </li>
+        <li>
+          <button ng-click="vm.changePage($event, vm.newData.actualPage + 1)" ng-disabled="vm.newData.nextPage">Next</button>
+        </li>
+        <li>
+          <button ng-click="vm.changePage($event, vm.totalPages)" ng-disabled="vm.newData.nextPage">Last</button>
+        </li>
+      </ul>
+
+      <!-- DETAIL -->
+      <div id="myModal" class="modal" ng-show="vm.viewDetails" ng-if="vm.citizens.length > 0">
+        <div class="modal-content">
+          <h4><a href="#" ng-click="vm.hideModal($event)">X</a></h4>
+          <h2>{{ vm.citizen.name}}</h2>
+          <div class="modal-picture" ng-style="{ 'background-image': 'url(' + vm.citizen.thumbnail + ')' }">
+          </div>
+          <div class="modal-data">
+            <ul>
+              <li>Age: {{vm.citizen.age}}</li>
+              <li>Gender: {{vm.citizen.gender}}</li>
+              <li>Height: {{vm.citizen.height}}</li>
+              <li>Weight: {{vm.citizen.weight}}</li>
+              <li>Hair color: {{vm.citizen.hair_color}}</li>
+              <li ng-if="vm.citizen.professions.length > 0">Professions:
+                <ul>
+                  <li ng-repeat="profession in vm.citizen.professions"> {{profession}}</li>
+                </ul>
+              </li>
+              <li ng-if="vm.citizen.friends.length > 0">Friends:
+                <ul>
+                  <li ng-repeat="friend in vm.citizen.friends"> {{friend}}</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- CACHE  -->
+<div ng-show="false">
+  <img ng-repeat="img in vm.imgs" ng-src="{{img}}">
+</div>
