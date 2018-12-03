@@ -4,7 +4,7 @@
   "description": "",
   "main": "app/app.js",
   "scripts": {
-    "start": "http-server",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Davide Vacatello",
@@ -16,6 +16,8 @@
     "karma-jasmine": "^1.1.0"
   },
   "dependencies": {
-    "http-server": "^0.11.1"
+    "express": "^4.16.4",
+    "http-server": "^0.11.1",
+    "path": "^0.12.7"
   }
 }
