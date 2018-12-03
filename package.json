@@ -4,9 +4,8 @@
   "description": "",
   "main": "app/js/app.js",
   "scripts": {
-    "start": "heroku run -a server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Davide Vacatello",
   "license": "",
