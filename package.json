@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "app/js/app.js",
+  "engines": {
+    "node": "8.9.x",
+    "npm": "6.4.x"
+  },
   "scripts": {
     "start": "node server.js",
-    "preinstall": "npm install -g angular-cli",
-    "postinstall": "ng build --aot -prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Davide Vacatello",
