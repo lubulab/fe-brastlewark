@@ -9,8 +9,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "preinstall": "npm install -g angular-cli",
-    "postinstall": "ng build --aot -prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Davide Vacatello",
